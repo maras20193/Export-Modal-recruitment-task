@@ -20,6 +20,7 @@ export const RadioInput = forwardRef<HTMLInputElement, InputProps>(
                 value={option.toLocaleLowerCase()}
                 ref={ref}
                 id={option}
+                data-testid={`radioInput-${option}`}
                 {...rest}
               />
               <label htmlFor={option}>{option}</label>

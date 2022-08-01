@@ -11,7 +11,13 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>(
     <S.Wrapper>
       <S.SelectWrapper>
         <S.Label htmlFor={label}>{label}</S.Label>
-        <S.Select defaultValue="" ref={ref} id={label} {...rest}>
+        <S.Select
+          defaultValue=""
+          ref={ref}
+          id={label}
+          data-testid="select"
+          {...rest}
+        >
           <option value="" disabled hidden>
             Choose
           </option>

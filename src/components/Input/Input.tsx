@@ -18,6 +18,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
           scheduleInput={scheduleInput}
           ref={ref}
           id={label}
+          data-testid="input"
           {...rest}
         />
       </S.InputWrapper>

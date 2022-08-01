@@ -31,8 +31,7 @@ export const Input = styled.input<{
 
   ${({ isShortWidth, scheduleInput }) => {
     if (isShortWidth) {
-      return `width: 20%;
-      min-width: 110px;`;
+      return `width: 20%;`;
     }
     if (scheduleInput) {
       return "width: 40%;";

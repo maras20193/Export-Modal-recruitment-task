@@ -47,7 +47,7 @@ export const Modal = ({
           transition={{ type: "spring", duration: 0.35 }}
           data-testid="modal-back"
         >
-          <S.Modal ref={modalRef} {...rest}>
+          <S.Modal ref={modalRef} data-testid="modal" {...rest}>
             <S.Header>{title}</S.Header>
             <S.Body>{children}</S.Body>
           </S.Modal>
