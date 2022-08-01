@@ -32,12 +32,33 @@ export const Form = ({ closeModal }: FormProps) => {
 
   const scheduleType = watch("schedule");
 
-  const submitForm = async (data: TFormValues) => {
-    console.log(data);
+  const prepareDataToSend = (data: TFormValues) => {
+    const { reportName, format, email, schedule, time, date, weekday } = data;
+    const dataToSend: TFormValues = {
+      reportName,
+      format,
+      email,
+      schedule,
+    };
 
+    if (scheduleType === "daily") {
+      dataToSend.time = time;
+    }
+    if (scheduleType === "weekly") {
+      dataToSend.time = time;
+      dataToSend.weekday = weekday;
+    }
+    if (scheduleType === "specific date") {
+      dataToSend.date = date;
+    }
+    return dataToSend;
+  };
+
+  const submitForm = async (data: TFormValues) => {
+    const newData = prepareDataToSend(data);
     try {
       setIsLoading(true);
-      await sendForm(data);
+      await sendForm(newData);
       setIsLoading(false);
       toast.success("Your form was successfully sent.");
       closeModal();
