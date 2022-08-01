@@ -17,18 +17,21 @@ export const Modal = styled.div`
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 80%;
+  width: 95%;
   max-width: 800px;
-  border: 1px solid black;
-  background-color: ${({ theme }) => theme.colors.white};
+  background-color: ${({ theme }) => theme.colors.secondary};
 
-  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+
+  @media (min-width: 560px) {
+    width: 80%;
+  }
 `;
 
 export const Header = styled.div`
   font-size: 18px;
-  background-color: grey;
-  padding: 10px;
+  background-color: ${({ theme }) => theme.colors.primaryLight};
+  padding: 12px 10px;
 `;
 export const Body = styled.div`
   display: flex;

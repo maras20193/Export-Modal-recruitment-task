@@ -25,13 +25,14 @@ export const Input = styled.input<{
 }>`
   height: 40px;
   padding: 10px;
-  border: 1px solid grey;
+  border: 1px solid ${({ theme }) => theme.colors.border};
   outline: none;
   margin-left: ${({ scheduleInput }) => (scheduleInput ? "-25px" : "none")};
 
   ${({ isShortWidth, scheduleInput }) => {
     if (isShortWidth) {
-      return "width: 20%;";
+      return `width: 20%;
+      min-width: 110px;`;
     }
     if (scheduleInput) {
       return "width: 40%;";

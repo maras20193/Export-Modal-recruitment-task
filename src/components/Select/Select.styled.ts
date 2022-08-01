@@ -24,7 +24,7 @@ export const Select = styled.select`
   width: 40%;
   height: 40px;
   padding: 10px;
-  border: 1px solid grey;
+  border: 1px solid ${({ theme }) => theme.colors.border};
   outline: none;
 `;
 

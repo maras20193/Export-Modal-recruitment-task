@@ -61,6 +61,6 @@ export const GlobalStyle = createGlobalStyle`
   }
 
   body {
-    font-family: "Arial";
+    font-family: "Verdana";
   }
 `;

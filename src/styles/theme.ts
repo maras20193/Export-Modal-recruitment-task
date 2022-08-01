@@ -4,15 +4,18 @@ export const theme = {
       primary: "#000000",
       secondary: "#ffffff",
       hover: {
-        primary: "red",
-        secondary: "red",
+        primary: "#444444",
+        secondary: "#bbbbbb",
       },
       disabled: {
-        primary: "lightGrey",
-        border: "grey",
+        primary: "#dedede",
+        border: "#aaaaaa",
       },
     },
 
-    white: "#ffffff",
+    primary: "#000000",
+    secondary: "#ffffff",
+    primaryLight: "#dddddd",
+    border: "#999999",
   },
 };

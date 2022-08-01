@@ -7,8 +7,8 @@ export const Form = styled.form`
 `;
 
 export const FormItemWrapper = styled.div`
-  padding: 20px;
-  min-height: 372px;
+  padding: 14px 20px;
+  min-height: 340px;
 `;
 
 export const FormItem = styled.div`
@@ -22,7 +22,7 @@ export const Footer = styled.div`
   justify-content: flex-end;
   align-items: center;
   width: 100%;
-  border-top: 1px solid grey;
+  border-top: 1px solid ${({ theme }) => theme.colors.border};
   gap: 15px;
   padding: 15px;
 `;

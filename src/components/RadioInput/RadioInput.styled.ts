@@ -23,6 +23,7 @@ export const RadiosWrapper = styled.div`
   display: flex;
   width: 100%;
   gap: 20px;
+  flex-wrap: wrap;
 `;
 
 export const RadioBox = styled.div`

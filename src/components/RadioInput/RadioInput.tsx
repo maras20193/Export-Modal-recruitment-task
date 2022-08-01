@@ -14,7 +14,7 @@ export const RadioInput = forwardRef<HTMLInputElement, InputProps>(
         <S.Label>{label}</S.Label>
         <S.RadiosWrapper>
           {options.map((option) => (
-            <S.RadioBox>
+            <S.RadioBox key={option}>
               <input
                 type="radio"
                 value={option.toLocaleLowerCase()}
