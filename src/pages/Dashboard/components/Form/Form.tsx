@@ -1,13 +1,7 @@
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
-import {
-  Button,
-  Input,
-  RadioInput,
-  Select,
-  ShortInput,
-} from "../../../../components";
+import { Button, Input, RadioInput, Select } from "../../../../components";
 import * as S from "./Form.styled";
 import { schema } from "./validationSchema";
 import { sendForm } from "../../../../api";
@@ -74,7 +68,7 @@ export const Form = ({ closeModal }: FormProps) => {
         <S.FormItem>
           <Input
             label="E-mail to"
-            placeholder="client"
+            placeholder="client@company.com"
             {...register("email")}
             error={errors?.email?.message}
           />
@@ -90,8 +84,9 @@ export const Form = ({ closeModal }: FormProps) => {
 
         {scheduleType === "daily" ? (
           <S.FormItem>
-            <ShortInput
+            <Input
               isShortWidth
+              scheduleInput
               type="time"
               label="Everyday at"
               {...register("time")}
@@ -102,14 +97,15 @@ export const Form = ({ closeModal }: FormProps) => {
 
         {scheduleType === "specific date" ? (
           <S.FormItem>
-            <ShortInput
+            <Input
+              scheduleInput
               type="date"
               label="Date"
               {...register("date")}
-              error={errors?.date?.message}
             />
             <S.ExtraLabel>at</S.ExtraLabel>
-            <ShortInput
+            <Input
+              scheduleInput
               type="time"
               {...register("time")}
               error={errors?.time?.message}
@@ -119,13 +115,10 @@ export const Form = ({ closeModal }: FormProps) => {
 
         {scheduleType === "weekly" ? (
           <S.FormItem>
-            <Select
-              label="Every"
-              {...register("weekday")}
-              error={errors?.weekday?.message}
-            />
+            <Select label="Every" {...register("weekday")} />
             <S.ExtraLabel>at</S.ExtraLabel>
-            <ShortInput
+            <Input
+              scheduleInput
               type="time"
               {...register("time")}
               error={errors?.time?.message}
@@ -138,10 +131,9 @@ export const Form = ({ closeModal }: FormProps) => {
         <Button.Secondary type="button" onClick={closeModal}>
           Cancel
         </Button.Secondary>
-        <Button.Primary uppercase type="submit">
+        <Button.Primary isLoading={isLoading} uppercase type="submit">
           Ok
         </Button.Primary>
-        {isLoading && "loading..."}
       </S.Footer>
     </S.Form>
   );
