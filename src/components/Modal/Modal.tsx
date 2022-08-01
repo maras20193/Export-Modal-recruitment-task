@@ -1,6 +1,6 @@
 import { AnimatePresence } from "framer-motion";
 import { HTMLAttributes, useRef } from "react";
-import { Button } from "../Button/Button.styled";
+import { useDetectOutsideClick } from "../../hooks";
 import * as S from "./Modal.styled";
 
 export type ModalProps = {
@@ -28,6 +28,14 @@ export const Modal = ({
     el.setAttribute("id", "modal");
     document.body.appendChild(el);
   }
+
+  const handleOutsideClick = () => {
+    if (isOpen && onClose) {
+      onClose();
+    }
+  };
+
+  useDetectOutsideClick(modalRef, handleOutsideClick);
 
   return (
     <AnimatePresence exitBeforeEnter>

@@ -2,35 +2,17 @@ import React, { useEffect } from "react";
 
 type useDetectOutsideClickHookType = (
   ref: React.RefObject<HTMLElement>,
-  action: () => void,
-  excludedElements?: HTMLCollectionOf<Element> | NodeListOf<Element>
+  action: () => void
 ) => void;
 
 export const useDetectOutsideClick: useDetectOutsideClickHookType = (
   ref,
-  action,
-  excludedElements
+  action
 ) => {
   useEffect(() => {
     const listener = (e: MouseEvent) => {
-      if (excludedElements) {
-        const excludedElementsArray =
-          Array.prototype.slice.call(excludedElements);
-        const isTargetOnExcludedElement = excludedElementsArray?.some(
-          (element: Element) => element.contains(e.target as Node)
-        );
-        if (
-          ref.current &&
-          !ref.current.contains(e.target as Node) &&
-          !isTargetOnExcludedElement
-        ) {
-          action();
-        }
-      }
-      if (!excludedElements) {
-        if (ref.current && !ref.current.contains(e.target as Node)) {
-          action();
-        }
+      if (ref.current && !ref.current.contains(e.target as Node)) {
+        action();
       }
     };
 
@@ -38,5 +20,5 @@ export const useDetectOutsideClick: useDetectOutsideClickHookType = (
     return () => {
       window.removeEventListener("mousedown", listener);
     };
-  }, [ref, action, excludedElements]);
+  }, [ref, action]);
 };
