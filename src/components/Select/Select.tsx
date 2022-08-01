@@ -16,7 +16,10 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>(
             Choose
           </option>
           <option value="Monday">Monday</option>
-          <option value="Wtorek">Wtorek</option>
+          <option value="Tuesday">Tuesday</option>
+          <option value="Wednesday">Wednesday</option>
+          <option value="Thursday">Thursday</option>
+          <option value="Friday">Friday</option>
         </S.Select>
       </S.SelectWrapper>
       {error && <S.Error>{error}</S.Error>}

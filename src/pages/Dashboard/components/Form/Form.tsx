@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useForm } from "react-hook-form";
+import { toast } from "react-toastify";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { Button, Input, RadioInput, Select } from "../../../../components";
 import * as S from "./Form.styled";
@@ -38,11 +39,11 @@ export const Form = ({ closeModal }: FormProps) => {
       setIsLoading(true);
       await sendForm(data);
       setIsLoading(false);
-      console.log("pomyslnie wyslano formularz");
+      toast.success("Your form was successfully sent.");
       closeModal();
     } catch (err) {
       setIsLoading(false);
-      console.log("formularz nie zostal wyslany ");
+      toast.error("Error has occurred. Please try again later.");
     }
   };
 
@@ -52,7 +53,7 @@ export const Form = ({ closeModal }: FormProps) => {
         <S.FormItem>
           <Input
             label="Report name"
-            placeholder="Shareablee report"
+            placeholder="Shareablee Report"
             {...register("reportName")}
             error={errors?.reportName?.message}
           />
@@ -102,6 +103,7 @@ export const Form = ({ closeModal }: FormProps) => {
               type="date"
               label="Date"
               {...register("date")}
+              error={errors?.date?.message}
             />
             <S.ExtraLabel>at</S.ExtraLabel>
             <Input
@@ -115,7 +117,11 @@ export const Form = ({ closeModal }: FormProps) => {
 
         {scheduleType === "weekly" ? (
           <S.FormItem>
-            <Select label="Every" {...register("weekday")} />
+            <Select
+              label="Every"
+              {...register("weekday")}
+              error={errors?.weekday?.message}
+            />
             <S.ExtraLabel>at</S.ExtraLabel>
             <Input
               scheduleInput

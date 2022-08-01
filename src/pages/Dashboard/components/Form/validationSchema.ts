@@ -9,28 +9,28 @@ export const schema = yup.object({
     .string()
     .when("schedule", {
       is: "specific date",
-      then: yup.string().required("Schedule date is required"),
+      then: yup.string().required("Schedule time is required"),
       otherwise: yup.string().notRequired(),
     })
     .when("schedule", {
       is: "weekly",
-      then: yup.string().required("Schedule date is required"),
+      then: yup.string().required("Schedule time is required"),
       otherwise: yup.string().notRequired(),
     })
     .when("schedule", {
       is: "daily",
-      then: yup.string().required("Schedule date is required"),
+      then: yup.string().required("Schedule time is required"),
       otherwise: yup.string().notRequired(),
     }),
 
   date: yup.string().when("schedule", {
     is: "specific date",
-    then: yup.string().required("Date is required"),
+    then: yup.string().required("Schedule date is required"),
     otherwise: yup.string().notRequired(),
   }),
   weekday: yup.string().when("schedule", {
     is: "weekly",
-    then: yup.string().required("Weekday is required"),
+    then: yup.string().required("Schedule weekday is required"),
     otherwise: yup.string().notRequired(),
   }),
 });
