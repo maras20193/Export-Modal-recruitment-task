@@ -5,21 +5,24 @@ export const Wrapper = styled.div`
   flex-direction: column;
   padding: 16px 0;
   position: relative;
+  width: 100%;
 `;
 
 export const InputWrapper = styled.div`
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
   align-items: center;
-  width: 100%;
+  /* width: 100%; */
 `;
 
 export const Label = styled.label`
   font-size: 16px;
+  width: 150px;
 `;
 
-export const Input = styled.input`
-  width: 75%;
+export const Input = styled.input<{ isShortWidth?: boolean }>`
+  width: ${({ isShortWidth }) => (isShortWidth ? "20%" : "100%")};
+  height: 40px;
   padding: 10px;
   border: 1px solid grey;
   outline: none;
@@ -32,4 +35,9 @@ export const Error = styled.p`
   bottom: -2px;
   right: 0;
   color: red;
+`;
+
+export const ShortInput = styled(Input)<{ isShortWidth?: boolean }>`
+  margin-left: -25px;
+  width: ${({ isShortWidth }) => (isShortWidth ? "20%" : "40%")};
 `;

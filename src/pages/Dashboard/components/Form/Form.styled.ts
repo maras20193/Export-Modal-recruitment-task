@@ -6,9 +6,15 @@ export const Form = styled.form`
   flex-direction: column;
 `;
 
-export const InputsWrapper = styled.div`
-  padding: 30px 20px 60px 20px;
-  flex-grow: 1;
+export const FormItemWrapper = styled.div`
+  padding: 20px;
+  min-height: 372px;
+`;
+
+export const FormItem = styled.div`
+  display: flex;
+  align-items: center;
+  width: 100%;
 `;
 
 export const Footer = styled.div`
@@ -21,9 +27,7 @@ export const Footer = styled.div`
   padding: 15px;
 `;
 
-export const InputRow = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  gap: 15px;
+export const ExtraLabel = styled.p`
+  margin-left: -70px;
+  margin-right: 60px;
 `;

@@ -5,21 +5,24 @@ export const Wrapper = styled.div`
   flex-direction: column;
   padding: 16px 0;
   position: relative;
+  width: 100%;
 `;
 
 export const SelectWrapper = styled.div`
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
   align-items: center;
-  width: 100%;
 `;
 
 export const Label = styled.label`
   font-size: 16px;
+  width: 150px;
 `;
 
 export const Select = styled.select`
-  width: 75%;
+  margin-left: -25px;
+  width: 40%;
+  height: 40px;
   padding: 10px;
   border: 1px solid grey;
   outline: none;

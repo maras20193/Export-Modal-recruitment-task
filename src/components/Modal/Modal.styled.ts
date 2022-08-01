@@ -18,6 +18,7 @@ export const Modal = styled.div`
   left: 50%;
   transform: translate(-50%, -50%);
   width: 80%;
+  max-width: 800px;
   border: 1px solid black;
   background-color: ${({ theme }) => theme.colors.white};
 

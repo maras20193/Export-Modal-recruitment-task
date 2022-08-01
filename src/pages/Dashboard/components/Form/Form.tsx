@@ -1,7 +1,13 @@
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
-import { Button, Input, RadioInput, Select } from "../../../../components";
+import {
+  Button,
+  Input,
+  RadioInput,
+  Select,
+  ShortInput,
+} from "../../../../components";
 import * as S from "./Form.styled";
 import { schema } from "./validationSchema";
 import { sendForm } from "../../../../api";
@@ -48,74 +54,85 @@ export const Form = ({ closeModal }: FormProps) => {
 
   return (
     <S.Form onSubmit={handleSubmit(submitForm)}>
-      <S.InputsWrapper>
-        <Input
-          label="Report name"
-          placeholder="Shareablee report"
-          {...register("reportName")}
-          error={errors?.reportName?.message}
-        />
-        <RadioInput
-          label="Format"
-          {...register("format")}
-          error={errors?.format?.message}
-          options={["Excel", "CSV"]}
-        />
-        <Input
-          label="E-mail to"
-          placeholder="client"
-          {...register("email")}
-          error={errors?.email?.message}
-        />
-        <RadioInput
-          label="Schedule"
-          {...register("schedule")}
-          error={errors?.schedule?.message}
-          options={["No Repeat", "Specific Date", "Daily", "Weekly"]}
-        />
+      <S.FormItemWrapper>
+        <S.FormItem>
+          <Input
+            label="Report name"
+            placeholder="Shareablee report"
+            {...register("reportName")}
+            error={errors?.reportName?.message}
+          />
+        </S.FormItem>
+        <S.FormItem>
+          <RadioInput
+            label="Format"
+            {...register("format")}
+            error={errors?.format?.message}
+            options={["Excel", "CSV"]}
+          />
+        </S.FormItem>
+        <S.FormItem>
+          <Input
+            label="E-mail to"
+            placeholder="client"
+            {...register("email")}
+            error={errors?.email?.message}
+          />
+        </S.FormItem>
+        <S.FormItem>
+          <RadioInput
+            label="Schedule"
+            {...register("schedule")}
+            error={errors?.schedule?.message}
+            options={["No Repeat", "Specific Date", "Daily", "Weekly"]}
+          />
+        </S.FormItem>
 
         {scheduleType === "daily" ? (
-          <Input
-            type="time"
-            label="Everyday at"
-            {...register("time")}
-            error={errors?.time?.message}
-          />
+          <S.FormItem>
+            <ShortInput
+              isShortWidth
+              type="time"
+              label="Everyday at"
+              {...register("time")}
+              error={errors?.time?.message}
+            />
+          </S.FormItem>
         ) : null}
 
         {scheduleType === "specific date" ? (
-          <S.InputRow>
-            <Input
+          <S.FormItem>
+            <ShortInput
               type="date"
               label="Date"
               {...register("date")}
               error={errors?.date?.message}
             />
-            <Input
+            <S.ExtraLabel>at</S.ExtraLabel>
+            <ShortInput
               type="time"
-              label="at"
               {...register("time")}
               error={errors?.time?.message}
             />
-          </S.InputRow>
+          </S.FormItem>
         ) : null}
 
         {scheduleType === "weekly" ? (
-          <S.InputRow>
+          <S.FormItem>
             <Select
               label="Every"
               {...register("weekday")}
               error={errors?.weekday?.message}
             />
-            <Input
+            <S.ExtraLabel>at</S.ExtraLabel>
+            <ShortInput
               type="time"
-              label="at"
               {...register("time")}
               error={errors?.time?.message}
             />
-          </S.InputRow>
+          </S.FormItem>
         ) : null}
-      </S.InputsWrapper>
+      </S.FormItemWrapper>
 
       <S.Footer>
         <Button.Secondary type="button" onClick={closeModal}>
