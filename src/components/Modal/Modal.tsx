@@ -1,5 +1,6 @@
 import { AnimatePresence } from "framer-motion";
 import { HTMLAttributes, useRef } from "react";
+import { createPortal } from "react-dom";
 import { useDetectOutsideClick } from "../../hooks";
 import * as S from "./Modal.styled";
 
@@ -37,7 +38,7 @@ export const Modal = ({
 
   useDetectOutsideClick(modalRef, handleOutsideClick);
 
-  return (
+  return createPortal(
     <AnimatePresence exitBeforeEnter>
       {isOpen && (
         <S.Background
@@ -53,6 +54,7 @@ export const Modal = ({
           </S.Modal>
         </S.Background>
       )}
-    </AnimatePresence>
+    </AnimatePresence>,
+    el
   );
 };
