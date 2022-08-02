@@ -37,6 +37,18 @@ describe("Button", () => {
     );
   });
 
+  test("renders a default Button.Primary with uppercase prop", () => {
+    render(
+      <ThemeProvider theme={theme}>
+        <Button.Primary uppercase>Test Button.Primary</Button.Primary>
+      </ThemeProvider>
+    );
+
+    expect(screen.getByText("Test Button.Primary")).toHaveStyle(
+      `text-transform: uppercase`
+    );
+  });
+
   test("renders a default Button.Primary with isLoading prop", () => {
     render(
       <ThemeProvider theme={theme}>
