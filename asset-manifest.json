@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/Export-Modal-recruitment-task/static/css/main.7f8d42b1.css",
+    "main.js": "/Export-Modal-recruitment-task/static/js/main.11f0eb8d.js",
+    "static/js/787.66308cc9.chunk.js": "/Export-Modal-recruitment-task/static/js/787.66308cc9.chunk.js",
+    "index.html": "/Export-Modal-recruitment-task/index.html",
+    "main.7f8d42b1.css.map": "/Export-Modal-recruitment-task/static/css/main.7f8d42b1.css.map",
+    "main.11f0eb8d.js.map": "/Export-Modal-recruitment-task/static/js/main.11f0eb8d.js.map",
+    "787.66308cc9.chunk.js.map": "/Export-Modal-recruitment-task/static/js/787.66308cc9.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.7f8d42b1.css",
+    "static/js/main.11f0eb8d.js"
+  ]
+}
